@@ -1,5 +1,7 @@
 package _02_boolean._1_sleepy_head;
 
+import java.awt.Color;
+
 import javax.swing.JOptionPane;
 import org.jointheleague.graphical.robot.Robot;
 
@@ -41,6 +43,9 @@ public class SleepyHead {
 		if(a > 70) {
 			passedExam = true;
 		}
+		else {
+			passedExam = false;
+		}
 		// If the user passed the exam, congratulate them
 		if(passedExam = true) {
 			JOptionPane.showMessageDialog(null, "Congrats!");
@@ -70,11 +75,30 @@ public class SleepyHead {
 		
 		boolean isRed;
 		// Ask the user what color to draw with. Based on their answer, set the isRed variable
-		
+		String color = JOptionPane.showInputDialog("What is your favorite color to draw with?");
+		if(color.equals("red")) {
+			isRed = true;
+		}
+		else {
+			isRed = false;
+		}
 		
 		boolean isSquare;		
 		// Now ask the user what shape to draw. Based on their answer, set the isSquare variable
+		String shape = JOptionPane.showInputDialog("What shape do you want to draw?");
+		if(shape.equals("square")) {
+			isSquare = true;
+		}
+		else {
+			isSquare = false;
+		}
 		
+		if(isRed == true && isSquare == true) {
+			drawRedSquare();
+		}
+		else {
+			JOptionPane.showMessageDialog(null, "I do not know how to draw that shape.");
+		}
 		
 		// Now you MUST use the && operator to join the booleans for this code. 
 		// Ask your teacher if you are not sure how
@@ -88,5 +112,14 @@ public class SleepyHead {
 	static void drawRedSquare() {
 		Robot rob = new Robot();
 		// Complete the rest of this method
+		rob.penDown();
+		rob.setPenColor(Color.red);
+		rob.move(40);
+		rob.turn(90);
+		rob.move(40);
+		rob.turn(90);
+		rob.move(40);
+		rob.turn(90);
+		rob.move(40);
 	}	
 }
